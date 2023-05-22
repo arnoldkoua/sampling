@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+base64
+xlrd
+BytesIO
+datetime

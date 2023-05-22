@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import base64
 import xlrd
-from io import BytesIO
+import io
 from datetime import datetime
 
 
@@ -28,7 +28,7 @@ def download_excel(sample):
     # Générer le lien de téléchargement pour le fichier Excel
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"Echantillon_{current_time}.xlsx"
-    excel_data = BytesIO()
+    excel_data = io.BytesIO()
     with pd.ExcelWriter(excel_data, engine='xlsxwriter') as writer:
         sample.to_excel(writer, sheet_name='Echantillon', index=False)
     excel_data.seek(0)

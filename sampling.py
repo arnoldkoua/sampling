@@ -9,8 +9,13 @@ from datetime import datetime
 
 
 # Fonction pour l'échantillonnage aléatoire simple
+# def random_sampling(data, sample_size):
+    # sample = data.sample(n=sample_size)
+    # return sample
 def random_sampling(data, sample_size):
-    sample = data.sample(n=sample_size)
+    population_size = len(data)
+    size = min(sample_size, population_size)
+    sample = data.sample(n=size)
     return sample
 
 # Fonction pour l'échantillonnage systématique

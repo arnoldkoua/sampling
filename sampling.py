@@ -5,17 +5,24 @@ import base64
 import xlrd
 import io
 import os
+import json
 from datetime import datetime
 from passlib.hash import pbkdf2_sha256
 
+# Charger les informations d'identification à partir du fichier JSON
+with open('credentials.json') as f:
+    credentials = json.load(f)
 
-# Fonction pour l'échantillonnage aléatoire simple
-# def random_sampling(data, sample_size):
-    # sample = data.sample(n=sample_size)
-    # return sample
+# Récupérer les informations d'identification pour un accès spécifique
+access_1_username = credentials['access_1']['username']
+access_1_password = credentials['access_1']['password'] 
+access_1_username = credentials['access_2']['username']
+access_1_password = credentials['access_2']['password'] 
+    
+
 AUTHORIZED_USERS = {
-    "user1": pbkdf2_sha256.hash("Welcom@@$$#"),
-    "user2": pbkdf2_sha256.hash("password2"),
+    access_1_username: pbkdf2_sha256.hash(access_1_password),
+    access_2_username: pbkdf2_sha256.hash(access_2_password)
     # Add more authorized users as needed
 }
 

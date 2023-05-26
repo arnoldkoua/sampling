@@ -6,3 +6,4 @@ openpyxl
 xlsxwriter
 datetime
 passlib
+pbkdf2_sha256

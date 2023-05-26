@@ -6,12 +6,25 @@ import xlrd
 import io
 import os
 from datetime import datetime
+from passlib.hash import pbkdf2_sha256
 
 
 # Fonction pour l'échantillonnage aléatoire simple
 # def random_sampling(data, sample_size):
     # sample = data.sample(n=sample_size)
     # return sample
+AUTHORIZED_USERS = {
+    "user1": pbkdf2_sha256.hash("Welcom@@$$#"),
+    "user2": pbkdf2_sha256.hash("password2"),
+    # Add more authorized users as needed
+}
+
+def authenticate(username, password):
+    # Check if the username exists and the password matches
+    if username in AUTHORIZED_USERS and pbkdf2_sha256.verify(password, AUTHORIZED_USERS[username]):
+        return True
+    return False
+
 def random_sampling(data, sample_size):
     population_size = len(data)
     size = min(sample_size, population_size)
@@ -74,10 +87,41 @@ def download_excel(sample, file_name):
     b64 = base64.b64encode(excel_data.read()).decode()
     href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{filename}">Télécharger l\'échantillon.</a>'
     st.markdown(href, unsafe_allow_html=True)
-
-
-
 def main():
+    # Vérifier l'état de connexion
+    if "logged_in" not in st.session_state:
+        st.session_state.logged_in = False
+
+    if not st.session_state.logged_in:
+        # Interface de connexion
+        st.markdown('<h3 class="title">Connexion</h3>', unsafe_allow_html=True)
+
+        username = st.text_input("Nom d'utilisateur")
+        password = st.text_input("Mot de passe", type="password")
+
+        if st.button("Se connecter"):
+            if authenticate(username, password):
+                st.session_state.logged_in = True
+                # update_last_action_time()  # Mettre à jour le temps d'action
+                # Forcer le rafraîchissement de l'application
+                st.experimental_rerun()
+            else:
+                st.error("Nom d'utilisateur ou mot de passe incorrect")
+
+    if st.session_state.logged_in:
+        show_sampling_interface()
+        # Vérifier le temps écoulé depuis la dernière action
+        # elapsed_time = time.time() - last_action_time
+        # if elapsed_time >= 15:  # 15 minutes en secondes
+            # st.session_state.logged_in = False
+            # st.experimental_rerun()
+        # update_last_action_time()  # Mettre à jour le temps d'action
+        # Bouton de déxconnexion
+        if st.button("Se déconnecter"):
+            st.session_state.logged_in = False
+            st.experimental_rerun()
+
+def show_sampling_interface():
     st.markdown('<h3 class="title">Application d\'échantillonnage</h3>', unsafe_allow_html=True)
     
     # Chargement des données

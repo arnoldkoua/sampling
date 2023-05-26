@@ -87,6 +87,12 @@ def download_excel(sample, file_name):
     b64 = base64.b64encode(excel_data.read()).decode()
     href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{filename}">Télécharger l\'échantillon.</a>'
     st.markdown(href, unsafe_allow_html=True)
+    
+# Fonction pour afficher la note en bas de l'application
+def show_footer_note():
+    st.markdown("---")
+    st.write("Pour toute question ou demande d'accès, veuillez me contacter au **0544950675** ou via email **davidarnoldkouassi@gmail.com**")
+    
 def main():
     # Vérifier l'état de connexion
     if "logged_in" not in st.session_state:
@@ -107,7 +113,8 @@ def main():
                 st.experimental_rerun()
             else:
                 st.error("Nom d'utilisateur ou mot de passe incorrect")
-
+        # Appel de la fonction pour afficher la note en bas de l'application
+        show_footer_note()
     if st.session_state.logged_in:
         show_sampling_interface()
         # Vérifier le temps écoulé depuis la dernière action

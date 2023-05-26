@@ -16,7 +16,7 @@ with open('credentials.json') as f:
 # Récupérer les informations d'identification pour un accès spécifique
 access_1_username = credentials['access_1']['username']
 access_1_password = credentials['access_1']['password'] 
-access_1_username = credentials['access_2']['username']
+access_2_username = credentials['access_2']['username']
 access_2_password = credentials['access_2']['password'] 
     
 

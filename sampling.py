@@ -106,7 +106,7 @@ def show_footer_note():
                 '<a href="https://wa.me/2250757965265" target="_blank">'
                 '<img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="Logo WhatsApp" width="19" style="margin-left: 5px;">'
                 '</a>'
-                '<a href="https://www.linkedin.com/in/votre_compte_linkedin" target="_blank">'
+                '<a href="https://www.linkedin.com/in/kouassi-david-arnold-kouadio/" target="_blank">'
                 '<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Logo LinkedIn" width="19" style="margin-left: 10px;">'
                 '</a>'
                 '<a href="mailto:davidarnoldkouassi@gmail.com" target="_blank">'

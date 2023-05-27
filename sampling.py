@@ -98,9 +98,22 @@ def download_excel(sample, file_name):
 # Fonction pour afficher la note en bas de l'application
 def show_footer_note():
     st.markdown("---")
-    st.write("Pour toute question ou demande d'accès, veuillez me contacter au **+2250544950675** ou via : ")
-    st.markdown('<a href="mailto:davidarnoldkouassi@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Logo Gmail" width="20"></a>', unsafe_allow_html=True)
-    st.markdown('<a href="https://www.linkedin.com/in/kouassi-david-arnold-kouadio/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Logo LinkedIn" width="20"></a>', unsafe_allow_html=True)
+    st.markdown('<div style="display: flex; align-items: center;">'
+                '<div>'
+                'Pour toute question ou demande d\'accès, veuillez me contacter au <b>+2250544950675</b> ou via'
+                '</div>'
+                # '<div style="display: flex; margin-left: auto;">'
+                '<a href="https://wa.me/2250757965265" target="_blank">'
+                '<img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="Logo WhatsApp" width="19" style="margin-left: 5px;">'
+                '</a>'
+                '<a href="https://www.linkedin.com/in/votre_compte_linkedin" target="_blank">'
+                '<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Logo LinkedIn" width="19" style="margin-left: 10px;">'
+                '</a>'
+                '<a href="mailto:davidarnoldkouassi@gmail.com" target="_blank">'
+                '<img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Logo Gmail" width="19" style="margin-left: 10px;">'
+                '</a>'
+                # '</div>'
+                '</div>', unsafe_allow_html=True)
     
 def main():
     # Vérifier l'état de connexion

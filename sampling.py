@@ -98,8 +98,9 @@ def download_excel(sample, file_name):
 # Fonction pour afficher la note en bas de l'application
 def show_footer_note():
     st.markdown("---")
-    st.write("Pour toute question ou demande d'accès, veuillez me contacter au **+2250544950675** ou via email **davidarnoldkouassi@gmail.com**")
-    st.markdown('<a href="https://www.linkedin.com/in/kouassi-david-arnold-kouadio/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Logo LinkedIn" width="30"></a>', unsafe_allow_html=True)
+    st.write("Pour toute question ou demande d'accès, veuillez me contacter au **+2250544950675** ou via : ")
+    st.markdown('<a href="mailto:davidarnoldkouassi@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Logo Gmail" width="20"></a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://www.linkedin.com/in/kouassi-david-arnold-kouadio/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Logo LinkedIn" width="20"></a>', unsafe_allow_html=True)
     
 def main():
     # Vérifier l'état de connexion
